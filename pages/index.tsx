@@ -15,3 +15,5 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+// npm install @heroicons/react
