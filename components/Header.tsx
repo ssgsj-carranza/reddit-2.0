@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import {signIn} from 'next-auth/react'
 import {ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon} from '@heroicons/react/solid';
 import {BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon} from '@heroicons/react/outline';
 
@@ -42,7 +43,7 @@ function Header() {
             <MenuIcon className='icon' />
         </div>
         {/* signin */}
-        <div className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
+        <div onClick={() => signIn()} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
             <div className='relative h-5 w-5 flex-shrink-0'>
             <Image layout='fill'
                    src='https://links.papareact.com/23l' 
