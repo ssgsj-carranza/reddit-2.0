@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import {signIn} from 'next-auth/react'
+import {signIn, signOut, useSession} from 'next-auth/react'
 import {ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon} from '@heroicons/react/solid';
 import {BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon} from '@heroicons/react/outline';
 
 function Header() {
+    const {data: session} = useSession();
+
   return (
     <div className="flex bg-white px-4 py-2 shadow-sm sticky top-0 z-50">
         <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer">
@@ -43,7 +45,19 @@ function Header() {
             <MenuIcon className='icon' />
         </div>
         {/* signin */}
-        <div onClick={() => signIn()} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
+        {session ? (
+            <div onClick={() => signOut()} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
+            <div className='relative h-5 w-5 flex-shrink-0'>
+            <Image layout='fill'
+                   src='https://links.papareact.com/23l' 
+                   alt=''
+                   objectFit='contain'
+            />
+            </div>
+            <p className='text-gray-400'>Sign Out</p> 
+        </div>
+        ) : (
+            <div onClick={() => signIn()} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
             <div className='relative h-5 w-5 flex-shrink-0'>
             <Image layout='fill'
                    src='https://links.papareact.com/23l' 
@@ -53,6 +67,7 @@ function Header() {
             </div>
             <p className='text-gray-400'>Sign In</p> 
         </div>
+        )}   
     </div>
   )
 }
