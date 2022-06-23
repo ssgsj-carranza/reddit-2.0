@@ -28,3 +28,4 @@ export default Home
 // stepzen import postgresql
 // stepzen start
 // npm install @apollo/client graphql
+// npm install react-hook-form
