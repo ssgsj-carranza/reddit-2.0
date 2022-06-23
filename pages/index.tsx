@@ -21,3 +21,4 @@ export default Home
 // stepzen login -a bouafle
 // stepzen import postgresql
 // stepzen start
+// npm install @apollo/client graphql
