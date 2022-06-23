@@ -17,4 +17,7 @@ export default Home
 
 // npm install @heroicons/react
 // npm install next-auth
-//
+// npm install -g stepzen
+// stepzen login -a bouafle
+// stepzen import postgresql
+// stepzen start
